@@ -4,7 +4,7 @@ const app = express();
 var cors = require('cors')
 app.use(cors());
 app.get("/", function(request, response){
-    var ip = request.connection.remoteAddress;
+    var ip = request.headers['x-real-ip'] || request.connection.remoteAddress;
     console.log('req ' + ip);
     console.log(request.headers['x-real-ip']);
     response.send("Hello from server");
