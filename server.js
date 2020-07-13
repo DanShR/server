@@ -6,6 +6,7 @@ app.use(cors());
 app.get("/", function(request, response){
     var ip = request.connection.remoteAddress;
     console.log('req ' + ip);
+    console.log(request.headers['x-real-ip']);
     response.send("Hello from server");
 });
 console.log("Server start on port 3001");
